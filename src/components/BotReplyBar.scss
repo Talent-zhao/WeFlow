@@ -1,0 +1,121 @@
+.bot-reply-bar {
+  border-top: 1px solid var(--border-primary, #e0e0e0);
+  background: var(--bg-primary, #fff);
+  padding: 10px 16px 6px;
+  flex-shrink: 0;
+}
+
+.bot-reply-bar-body {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.bot-reply-bar-textarea {
+  flex: 1;
+  resize: none;
+  border: 1px solid var(--border-primary, #e0e0e0);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  font-family: inherit;
+  color: var(--text-primary, #333);
+  background: var(--bg-secondary, #f5f5f5);
+  outline: none;
+  min-height: 40px;
+  max-height: 120px;
+  transition: border-color 0.15s, background 0.15s;
+
+  &:focus {
+    border-color: var(--accent-color, #4a90d9);
+    background: var(--bg-primary, #fff);
+    box-shadow: 0 0 0 2px var(--accent-bg, rgba(74, 144, 217, 0.12));
+  }
+
+  &::placeholder {
+    color: var(--text-tertiary, #bbb);
+    font-size: 13px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--bg-tertiary, #ebebeb);
+  }
+}
+
+.bot-reply-send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent-color, #4a90d9);
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s, transform 0.1s;
+
+  &:hover:not(:disabled) {
+    background: var(--accent-hover, #3a7bc8);
+    transform: scale(1.05);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    background: var(--border-primary, #e0e0e0);
+    color: var(--text-tertiary, #bbb);
+    cursor: not-allowed;
+  }
+}
+
+.bot-reply-bar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0 0;
+  font-size: 11px;
+}
+
+.bot-reply-bar-charcount {
+  color: var(--text-tertiary, #bbb);
+}
+
+.bot-reply-bar-estimate {
+  color: var(--accent-color, #4a90d9);
+  background: var(--accent-bg, rgba(74, 144, 217, 0.08));
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.bot-reply-bar-status {
+  font-weight: 500;
+
+  &.sent {
+    color: #22c55e;
+  }
+
+  &.error {
+    color: #ef4444;
+  }
+
+  &.sending {
+    color: var(--accent-color, #4a90d9);
+  }
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

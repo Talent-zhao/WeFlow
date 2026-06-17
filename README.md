@@ -6,7 +6,7 @@
 
 WeFlow 智能回复功能概述
 
-##### 整体架构
+## 整体架构
 
 智能回复是一个基于 AI 的微信自动回复机器人，采用三层架构：
 
@@ -20,14 +20,14 @@ WCDB 数据库轮询 Claude/OpenAI 推理
 - **botBridgeService.ts (Node.js 桥接)**：负责微信数据库轮询、消息过滤、WebSocket 通信、配置管理及发送后端调度。
 - **Python AI 引擎**：接收消息上下文，构建包含对话历史、联系人关系图谱的 prompt，调用 Claude/OpenAI API 生成回复，并返回结果。
 
-##### 工作流程
+## 工作流程
 
 1. **消息检测**：每 2 秒轮询 WCDB 微信数据库，检测所有会话的最新消息。
 2. **过滤判断**：根据监听模式（全部/白名单/黑名单）和冷却时间决定是否回复。
 3. **AI 推理**：将消息通过 WebSocket 发送给 Python 引擎，构建包含对话历史、联系人关系图谱的 prompt，调用 Claude/OpenAI API 生成回复。
 4. **发送消息**：通过剪贴板+键盘模拟（兼容所有微信版本）或 WeChatFerry 进程注入（仅微信 3.9.x）发送。
 
-##### 核心功能
+## 核心功能
 
 | 功能 | 说明 |
 |------|------|
@@ -39,7 +39,7 @@ WCDB 数据库轮询 Claude/OpenAI 推理
 | 统计仪表盘 | 消息数、回复数、API 调用、错误数、回复率、运行时间 |
 | 手动回复栏 | ChatPage 中的 BotReplyBar，支持手动输入发送 |
 
-##### 关键设计
+## 关键设计
 
 - **双协议 AI**：自动检测使用 Anthropic SDK 或 OpenAI SDK，兼容 Claude/DeepSeek/OpenAI
 - **双发送后端**：优先 WcfBackend，失败自动降级为 ClipboardBackend
@@ -48,7 +48,7 @@ WCDB 数据库轮询 Claude/OpenAI 推理
 - **去重机制**：启动时标记所有历史消息为已处理，避免重复回复
 - **优雅降级**：WebSocket 断线重连（最多5次）、发送失败回退剪贴板直发
 
-  ##### 直接使用
+  ## 直接使用
   带有智能回复版本的安装程序，直接点击[Release](https://github.com/Talent-zhao/WeFlow/releases) win10/11版本 
   
 #### ===================================================================

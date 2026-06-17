@@ -48,8 +48,9 @@ WCDB 数据库轮询 Claude/OpenAI 推理
 - **去重机制**：启动时标记所有历史消息为已处理，避免重复回复
 - **优雅降级**：WebSocket 断线重连（最多5次）、发送失败回退剪贴板直发
 
-  ## 直接使用
-  带有智能回复版本的安装程序，直接点击[Release](https://github.com/Talent-zhao/WeFlow/releases) win10/11版本 
+## 直接使用
+
+  带有智能回复版本的安装程序，直接点击[Release](https://github.com/Talent-zhao/WeFlow/releases)   win10/11版本 
   
 #### ===================================================================
 

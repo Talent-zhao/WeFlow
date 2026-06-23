@@ -1,6 +1,6 @@
 {
   "name": "weflow",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "WeFlow",
   "main": "dist-electron/main.js",
   "author": {
@@ -17,6 +17,7 @@
     "rebuild": "electron-rebuild",
     "dev": "node scripts/prepare-electron-runtime.cjs && vite",
     "typecheck": "tsc --noEmit",
+    "prebuild": "node scripts/setup-python.cjs",
     "build": "tsc && vite build && electron-builder",
     "preview": "vite preview",
     "electron:dev": "node scripts/prepare-electron-runtime.cjs && vite --mode electron",
